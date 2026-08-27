@@ -2,6 +2,7 @@
 // Service worker for push-subscribe.html / push-server.py
 
 // Where push-server.py is reachable. Keep in sync with push-subscribe.html.
+
 const SERVER_URL = 'http://localhost:5000';
 
 function reportAck(data, status) {
