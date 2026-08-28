@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Notification Settings</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    .card{background:#fff;padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(2,6,23,0.06);max-width:360px}
+    body{font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:#f6f8fa;padding:28px}
+    .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.4); align-items:center; justify-content:center; }
+    .panel { background:#fff; padding:1rem; border-radius:8px; width:90%; max-width:420px; box-shadow:0 6px 20px rgba(0,0,0,0.12); }
+    .actions { display:flex; gap:.5rem; justify-content:flex-end; margin-top:1rem; }
+    button.primary { background:#007bff; color:#fff; border:0; padding:.5rem 1rem; border-radius:6px; }
+    button.ghost { background:#f3f3f3; border:0; padding:.5rem 1rem; border-radius:6px; }
+    form{display:flex;flex-direction:column;gap:8px}
+    input[type="text"]{padding:8px;border-radius:6px;border:1px solid #e6e9ef}
+    .row{display:flex;gap:8px;align-items:center}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>SmartLOG Live</h2>
+    <p>Push Notification Subscriber</p>
+
+    <form id="settings-form">
+      <label>Device serial: <input id="serial" name="serial" type="text" placeholder="SN-12345"></label>
+
+      <div class="row">
+        <label><input type="checkbox" id="push" name="push" checked> Web Push</label>
+        <label><input type="checkbox" id="sms" name="sms"> SMS</label>
+        <label><input type="checkbox" id="email" name="email"> Email</label>
+      </div>
+
+      <div>
+        <button type="submit">Save</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Custom in-page popup / modal -->
+  <div id="confirm-modal" class="modal" role="dialog" aria-hidden="true">
+    <div class="panel" role="document" aria-labelledby="modal-title">
+      <h3 id="modal-title">Enable Push</h3>
+      <div id="modal-body"></div>
+      <div class="actions">
+        <button id="modal-cancel" class="ghost">Cancel</button>
+        <button id="modal-enable" class="primary">Enable Push Notifications</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/main.js"></script>
+</body>
+</html>
